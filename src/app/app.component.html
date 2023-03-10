@@ -1,0 +1,262 @@
+<!--NAVBAR-->
+<!-- <div class="row">
+
+    <div class="nav">
+        <ul>
+            <li><a class="nav-item nav-link active" (click)="inView(home)">Home</a></li>
+            <li><a class="nav-item" (click)="inView(about)">About Me</a></li>
+            <li><a class="nav-item" (click)="inView(resume)">Resume</a></li>
+            <li><a class="nav-item" (click)="inView(skills)">Skills</a></li>
+            <li><a class="nav-item" (click)="inView(projects)">Projects</a></li>
+            <li><a class="nav-item">Contact</a></li>
+        </ul>
+    </div>
+</div> -->
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-md-12 p-0">
+            <!--
+            <nav class="navbar navbar-expand-lg">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbarItemC">
+                        <a class="navbarItem" (click)="inView(home)">Home</a>
+                        <a class="navbarItem" (click)="inView(about)">About Me</a>
+                        <a class="navbarItem" (click)="inView(resume)">Resume</a>
+                        <a class="navbarItem" (click)="inView(skills)">Skills</a>
+                        <a class="navbarItem" (click)="inView(projects)">Projects</a>
+                        <a class="navbarItem">Contact</a>
+                    </div>
+                </div>
+            </nav> -->
+            <nav class="navbar">
+                <div class="navbar-menu">
+                    <ul>
+                        <li><a (click)="inView(home)">Home</a></li>
+                        <li><a (click)="inView(about)">About Me</a></li>
+                        <li><a (click)="inView(resume)">Resume</a></li>
+                        <li><a (click)="inView(skills)">Skills</a></li>
+                        <li><a (click)="inView(projects)">Projects</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+
+    <!-- HOME -->
+    <div class="row section1" #home>
+        <div class="titleSection1">
+            <h1 class="title1">Hi, I am Daniel <span class="titleTag1">Gonfaus</span></h1>
+            <h6>
+                <div class="tagline1">I am a frontend web developer. I am specialized in Angular framework and other languages too. I'm also in constant formation to grow professionally and for fun.</div>
+            </h6>
+        </div>
+    </div>
+    <!-- ABOUT ME -->
+    <div class="row section2 " #about>
+        <div class="d-flex justify-content-center ">
+            <h1 class="title2 p-4 mb-5">ABOUT ME</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-5 col-md-5  p-5">
+                <img src="../../../assets/img/avatar/avatar1.png" class="img-fluid imgAvatar">
+            </div>
+            <div class="col-md-5">
+                <div class="container-fluid mt-5 mx-auto form">
+                    <div class="row mt-4 justify-content-center">
+                        <div class="col-md-12">
+                            <h2 class="text-center">This is Daniel <span class="titleTag2">Gonfaus</span></h2>
+                        </div>
+                    </div>
+                    <div class="row mt-1 justify-content-center">
+                        <div class="col-md-12">
+                            <h4 class="tagLine2 text-center">Front end developer</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-1 justify-content-center">
+                        <div class="col-md-12">
+                            <h6 class="mt-4 text-center">
+                                I am a front end developer with strong focus on Angular framework. Experienced working in companies in client environment
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="row mt-4 justify-content-center">
+                        <div class="col-3 col-sm-2 col-md-3 col-lg-3 tagLine2">Name: </div>
+                        <div class="col-6 col-sm-5 col-md-6 col-lg-6">Daniel Gonfaus Calsina</div>
+                    </div>
+                    <div class="row mt-1 justify-content-center">
+                        <div class="col-3 col-sm-2 col-md-3 col-lg-3 tagLine2">Birthday:</div>
+                        <div class="col-6 col-sm-5 col-md-6 col-lg-6">13 June 1989</div>
+                    </div>
+                    <div class="row mt-1 justify-content-center">
+                        <div class="col-3 col-sm-2 col-md-3 col-lg-3 tagLine2">Email:</div>
+                        <div class="col-6 col-sm-5 col-md-6 col-lg-6">danifaus89@hotmail.com</div>
+                    </div>
+                    <div class="row mt-1 justify-content-center">
+                        <div class="col-3 col-sm-2 col-md-3 col-lg-3 tagLine2">From:</div>
+                        <div class="col-6 col-sm-5 col-md-6 col-lg-6">Reus, Tarragona (Spain)</div>
+                    </div>
+                    <div class="row mt-1 justify-content-center">
+                        <div class="col-3 col-sm-2 col-md-4 col-lg-3 tagLine2">Language:</div>
+                        <div class="col-6 col-sm-5 col-md-6 col-lg-6">Catalan, Spanish, English, French</div>
+                    </div>
+                    <div class="row mt-1 justify-content-center">
+                        <div class="col-3 col-sm-2 col-md-4 col-lg-3 tagLine2">Freelance:</div>
+                        <div class="col-6 col-sm-5 col-md-6 col-lg-6">Available for hire</div>
+                    </div>
+                    <div class="row mt-5 justify-content-center mb-5 mx-auto">
+                        <div class="d-flex justify-content-center ">
+                            <button type="button" class="buttonCustom" (click)="downloadMyFile()">Download CV</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="d-flex justify-content-end mx-4">
+                <button type="button" class=" scrollBtn" (click)="inView(home)">
+                  <a class="nav-link" (click)="inView(home)"><i class="fa fa-arrow-up" title="Home" ></i></a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- RESUME -->
+    <div class="row section4 pb-5" #resume>
+        <div class="d-flex justify-content-center pb-5">
+            <h1 class="title3 p-4 mb-5">RESUME</h1>
+        </div>
+        <div class="row justify-content-around my-5">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 m-3">
+                <div class="d-flex justify-content-center ">
+                    <h3 class="mx-1 text-white">Education</h3>
+                </div>
+                <div class="timelineContainer" *ngFor="let x of education">
+                    <div class="row justify-content-lg-around">
+                        <div class="col-4 col-sm-4 col-md-4 col-lg-4">
+                            <h4 class="dateEvent">{{x.date}}</h4>
+                        </div>
+                        <div class="col-8 col-sm-8 col-md-8 col-lg-8 tlCont">
+                            <p class="timelineTitle">{{x.title}}</p>
+                            <p class="timelineTagline">{{x.tagline}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 m-3">
+                <div class="d-flex justify-content-center ">
+                    <h3 class="mx-1 text-white">Experience</h3>
+                </div>
+                <div class="timelineContainer" *ngFor="let x of experience">
+                    <div class="row justify-content-lg-around">
+                        <div class="col-4 col-sm-4 col-md-4 col-lg-4">
+                            <h4 class="dateEvent">{{x.date}}</h4>
+                        </div>
+                        <div class="col-8 col-sm-8 col-md-8 col-lg-8 tlCont">
+                            <p class="timelineTitle">{{x.title}}</p>
+                            <p class="timelineTagline">{{x.company}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SKILLS -->
+    <div class="row section3 pb-5" #skills>
+        <div class="d-flex justify-content-start">
+            <h1 class="title3 p-4 mb-5">MY SKILLS</h1>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-5">
+            <div class="container-fluid box">
+                <div class="row justify-content-center ">
+                    <div class="col-11 col-md-12">
+                        <h2 class="text-center m-3 textTitle3">All the skills that i've learned</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <h6 class="m-4 textContent3 text-center">
+                            Here's a list of skills that i have learned along my front end career. That list contains stuff related with a frontend profile but also languages, frameworks and libraries related with backend and databases content. Take a look!
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-7">
+            <div class="container-fluid box">
+                <div class="row justify-content-start ">
+                    <div class="col-md-12">
+                        <div *ngFor="let x of mainLanguages" class="contentBar">
+                            <h6 class="mt-4 textContent3">{{x.title}}</h6>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" [style.width]="x.progress + '%'" aria-valuemin="0" aria-valuemax="100">{{x.progress}}%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-end my-4">
+                    <div class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-3 ml-auto">
+                        <a class="buttonCustom my-3" data-bs-toggle="collapse" href="#languages" role="button" aria-expanded="false">See More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-12">
+            <div class="container-fluid collapse box" id="languages">
+                <div class="row justify-content-sm-start">
+                    <div *ngFor="let x of languages" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 contentBar mb-3">
+                        <h6 class="my-4 textContent3">{{x.title}}</h6>
+                        <div class="progress">
+                            <div class="progress-bar " role="progressbar" [style.width]="x.progress + '%'" aria-valuemin="0" aria-valuemax="100">{{x.progress}}%</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="row justify-content-end py-5" #projects>
+            <div class="d-flex justify-content-end">
+                <h1 class="title3 p-4 mb-5">MY PROJECTS</h1>
+            </div>
+            <div class="container-fluid">
+
+                <div class="row justify-content-center mt-3">
+
+                    <div *ngFor="let x of proj" class="col-xl-3 m-1">
+
+                        <div class="card bg-dark m-2">
+                            <img src="{{x.img}}" class="card-img" alt="{{x.title}}" />
+                            <div class="card-img-overlay">
+                                <h5 class="card-title">{{x.title}}</h5>
+                                <p class="card-text">{{x.description}}</p>
+                                <button type="button" class="buttonCustom" (click)="goToGit()">Git Link
+                                  <a href="">{{x.link}}</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <!-- CONTACT -->
+
+    <!-- <app-footer></app-footer> -->
+</div>
