@@ -1,49 +1,37 @@
 <!--NAVBAR-->
-<!-- <div class="row">
-
-    <div class="nav">
-        <ul>
-            <li><a class="nav-item nav-link active" (click)="inView(home)">Home</a></li>
-            <li><a class="nav-item" (click)="inView(about)">About Me</a></li>
-            <li><a class="nav-item" (click)="inView(resume)">Resume</a></li>
-            <li><a class="nav-item" (click)="inView(skills)">Skills</a></li>
-            <li><a class="nav-item" (click)="inView(projects)">Projects</a></li>
-            <li><a class="nav-item">Contact</a></li>
-        </ul>
-    </div>
-</div> -->
 <div class="container-fluid">
     <div class="row ">
         <div class="col-md-12 p-0">
-            <!--
-            <nav class="navbar navbar-expand-lg">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <nav class="navbar navbar-expand-lg navbar-dark ">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbarItemC">
-                        <a class="navbarItem" (click)="inView(home)">Home</a>
-                        <a class="navbarItem" (click)="inView(about)">About Me</a>
-                        <a class="navbarItem" (click)="inView(resume)">Resume</a>
-                        <a class="navbarItem" (click)="inView(skills)">Skills</a>
-                        <a class="navbarItem" (click)="inView(projects)">Projects</a>
-                        <a class="navbarItem">Contact</a>
-                    </div>
-                </div>
-            </nav> -->
-            <nav class="navbar">
-                <div class="navbar-menu">
-                    <ul>
-                        <li><a (click)="inView(home)">Home</a></li>
-                        <li><a (click)="inView(about)">About Me</a></li>
-                        <li><a (click)="inView(resume)">Resume</a></li>
-                        <li><a (click)="inView(skills)">Skills</a></li>
-                        <li><a (click)="inView(projects)">Projects</a></li>
-                        <li><a>Contact</a></li>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" (click)="inView(home)">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="inView(about)">About Me</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="inView(resume)">Resume</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="inView(skills)">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="inView(projects)">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="inView(contact)">Contact</a>
+                        </li>
+
                     </ul>
+
                 </div>
             </nav>
-
         </div>
     </div>
 
@@ -169,7 +157,6 @@
         <div class="d-flex justify-content-start">
             <h1 class="title3 p-4 mb-5">MY SKILLS</h1>
         </div>
-
         <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-5">
             <div class="container-fluid box">
                 <div class="row justify-content-center ">
@@ -186,7 +173,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-7">
             <div class="container-fluid box">
                 <div class="row justify-content-start ">
@@ -200,13 +186,12 @@
                     </div>
                 </div>
                 <div class="row justify-content-end my-4">
-                    <div class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-3 ml-auto">
-                        <a class="buttonCustom my-3" data-bs-toggle="collapse" href="#languages" role="button" aria-expanded="false">See More</a>
+                    <div class="col-5 col-sm-4 col-md-3 col-lg-3 col-xl-3 ">
+                        <button class="buttonCustom" data-bs-toggle="collapse" href="#languages" role="button" aria-expanded="false">See More</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="col-12 col-sm-12 col-md-12">
             <div class="container-fluid collapse box" id="languages">
                 <div class="row justify-content-sm-start">
@@ -220,7 +205,6 @@
 
             </div>
         </div>
-
         <!-- PROJECTS -->
         <div class="row justify-content-end py-5" #projects>
             <div class="d-flex justify-content-end">
@@ -230,33 +214,127 @@
 
                 <div class="row justify-content-center mt-3">
 
-                    <div *ngFor="let x of proj" class="col-xl-3 m-1">
+                    <div *ngFor="let x of proj" class="col-12 col-xl-3 m-1">
 
                         <div class="card bg-dark m-2">
                             <img src="{{x.img}}" class="card-img" alt="{{x.title}}" />
                             <div class="card-img-overlay">
                                 <h5 class="card-title">{{x.title}}</h5>
                                 <p class="card-text">{{x.description}}</p>
-                                <button type="button" class="buttonCustom" (click)="goToGit()">Git Link
-                                  <a href="">{{x.link}}</a>
-                                </button>
+                                <button type="button" class="buttonCustom" (click)="goToGit(x.link)">Git Link</button>
+
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
-
         </div>
     </div>
 
-
-
-
-
     <!-- CONTACT -->
-
-    <!-- <app-footer></app-footer> -->
+    <div class="row section6 pb-5" #contact>
+        <div class="d-flex justify-content-center">
+            <h1 class="title3 p-4 mb-5">Contact Me</h1>
+        </div>
+        <div class="container-fluid mb-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-10 col-lg-7 col-xl-7">
+                    <form *ngIf="!showLoader" class="formBox p-3" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-6 col-xl-5">
+                                <div class="mb-3">
+                                    <label class="form-label text-white">Your name: </label>
+                                    <input type="text" class="form-control" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" placeholder="¿Who are you?">
+                                    <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['name'].errors['required']">Your name is required</div>
+                                        <div *ngIf="f['name'].errors['minlength']">
+                                            Your name must be at least 6 characters
+                                        </div>
+                                        <div *ngIf="f['name'].errors['maxlength']">
+                                            Your name must not exceed 20 characters
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-xl-7">
+                                <div class="mb-3">
+                                    <label class="form-label text-white">Company name: </label>
+                                    <input type="text" class="form-control" formControlName="companyName" [ngClass]="{ 'is-invalid': submitted && f['companyName'].errors }" placeholder="Who wants to contact me">
+                                    <div *ngIf="submitted && f['companyName'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['companyName'].errors['required']">The company name is required</div>
+                                        <div *ngIf="f['companyName'].errors['minlength']">
+                                            Company name must be at least 6 characters
+                                        </div>
+                                        <div *ngIf="f['companyName'].errors['maxlength']">
+                                            Company name must not exceed 30 characters
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-xl-5">
+                                <div class="mb-3">
+                                    <label class="form-label text-white">Your email: </label>
+                                    <input type="email" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" placeholder="Enter your email">
+                                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['email'].errors['required']">Your email is required</div>
+                                        <div *ngIf="f['email'].errors['email']">This email is not valid</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-xl-7">
+                                <div class="mb-3">
+                                    <label class="form-label text-white">Subject: </label>
+                                    <input type="text" class="form-control" formControlName="subject" [ngClass]="{ 'is-invalid': submitted && f['subject'].errors }" placeholder="¿What's the deal?">
+                                    <div *ngIf="submitted && f['subject'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['subject'].errors['required']">The subject is required</div>
+                                        <div *ngIf="f['subject'].errors['minlength']">
+                                            Subject must be at least 6 characters
+                                        </div>
+                                        <div *ngIf="f['subject'].errors['maxlength']">
+                                            Subject must not exceed 20 characters
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-xl-12">
+                                <div class="mb-3">
+                                    <label class="form-label text-white">Your message: </label>
+                                    <textarea rows="4" class="form-control" formControlName="msg" [ngClass]="{ 'is-invalid': submitted && f['msg'].errors }" placeholder="Share with me your thoughts"></textarea>
+                                    <div *ngIf="submitted && f['msg'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['msg'].errors['required']">The message is required</div>
+                                        <div *ngIf="f['msg'].errors['minlength']">
+                                            This message must be at least 50 characters
+                                        </div>
+                                        <div *ngIf="f['msg'].errors['maxlength']">
+                                            This message must not exceed 500 characters
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary m-2">Send</button>
+                            <!--[disabled]="!contactForm.valid"-->
+                            <button type="button" (click)="onReset()" class="btn btn-warning m-2">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--SPINNER-->
+        <div class="row justify-content-center">
+            <div class="col-xl-1">
+                <p-progressSpinner *ngIf="showLoader" animationDuration="5s"></p-progressSpinner>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-xl-4">
+            <app-footer></app-footer>
+        </div>
+    </div>
 </div>

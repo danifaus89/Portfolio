@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { PrimeIcons } from 'primeng/api';
 import { Project } from './shared/modules/interfaces';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ContactService } from './shared/services/contact.service';
 
 @Component({
   selector: 'app-root',
@@ -15,23 +16,33 @@ export class AppComponent {
   education: any[] = [];
   experience: any[] = [];
   proj: Project[] = [];
+  infoMsg: any[] = [];
+  gitLink = 'https://github.com/danifaus89/';
+  contactForm: FormGroup = new FormGroup({
+    name: new FormControl(''),
+    companyName: new FormControl(''),
+    email: new FormControl(''),
+    subject: new FormControl(''),
+    msg: new FormControl(''),
+  });
+  submitted: boolean = false;
+  showLoader: boolean = false;
 
-  constructor() {}
+  constructor(private cs: ContactService) {}
   ngOnInit(): void {
     this.initProgressBar();
     this.initTimeLine();
     this.initProjects();
+    this.initForm();
   }
 
   inView(element: any) {
-    console.log(element);
     element.scrollIntoView({
       behaviour: 'smooth',
       block: 'start',
       inline: 'start',
     });
   }
-
   downloadMyFile() {
     let link = document.createElement('a');
     link.download = 'cv';
@@ -39,8 +50,9 @@ export class AppComponent {
     link.click();
     link.remove();
   }
-  goToGit() {}
-
+  goToGit(repoName: string) {
+    window.open(this.gitLink + repoName);
+  }
   initProgressBar() {
     this.mainLanguages = [
       { title: 'Angular', progress: 80 },
@@ -61,7 +73,6 @@ export class AppComponent {
       { title: 'Angular Material', progress: 65 },
     ];
   }
-
   initTimeLine() {
     this.education = [
       {
@@ -103,7 +114,6 @@ export class AppComponent {
       },
     ];
   }
-
   initProjects() {
     this.proj = [
       {
@@ -111,7 +121,7 @@ export class AppComponent {
         icon: '',
         description:
           'This is an app to discover movies and series. And how i did it (In develop)',
-        link: '',
+        link: 'movieApp.git',
         img: '../assets/img/projectsImg/movieAppImg.jpg',
       },
       {
@@ -119,7 +129,7 @@ export class AppComponent {
         icon: '',
         description:
           'It is an application to manage our bank accounts. And how i did it (In develop)',
-        link: '',
+        link: 'Bank-Account-Manager-Web-App.git',
         img: '../assets/img/projectsImg/gestorAppImg.jpg',
       },
       {
@@ -127,18 +137,100 @@ export class AppComponent {
         icon: '',
         description:
           'This is an app that only fetch rock, heavy-metal and related genres. And how i did it (In develop)',
-        link: '',
+        link: 'HeavyFi.git',
         img: '../assets/img/projectsImg/heavyfyAppImg.jpg',
       },
       {
         title: 'Portfolio',
         icon: '',
         description: 'This is my portfolio. And how i did it',
-        link: '',
+        link: 'Portfolio.git',
         img: '../assets/img/projectsImg/portfolioImg.png',
+      },
+      {
+        title: 'RestServerTemplate',
+        icon: '',
+        description:
+          'This is a Node.js rest server template. And how i did it (In develop)',
+        link: 'RestServerTemplate.git',
+        img: '../assets/img/projectsImg/nodeservertemplate.jpg',
       },
     ];
   }
+  initForm() {
+    this.contactForm = new FormGroup({
+      name: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(20),
+      ]),
+      companyName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(30),
+      ]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      subject: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(30),
+      ]),
+      msg: new FormControl('', [
+        Validators.required,
+        Validators.minLength(50),
+        Validators.maxLength(500),
+      ]),
+    });
+  }
+  onSubmit(): void {
+    this.submitted = true;
 
-  initTest() {}
+    if (!this.contactForm.invalid) {
+      this.showLoader = true;
+      let form = this.contactForm.value;
+      this.infoMsg = [
+        {
+          icon: 'sucess',
+          title: 'Your message has been sent successfully',
+        },
+        {
+          icon: 'error',
+          title: 'Your message could not be sent',
+        },
+      ];
+      console.log(form);
+      //this.cs.sendEmail(form);
+      this.showLoader = false;
+      this.onReset();
+      /*this.cs.sendMessage(form).subscribe(
+        (response) => {
+          location.href = 'https://mailthis.to/confirm';
+          this.showLoader = false;
+          this.onReset();
+          this.mailNotification(this.infoMsg[0]);
+        },
+        (error) => {
+          this.mailNotification(this.infoMsg[1]);
+          this.showLoader = false;
+          this.scrollToTop();
+          console.warn(error.responseText);
+        }
+      );*/
+    }
+    return;
+  }
+  onReset(): void {
+    this.submitted = false;
+    this.contactForm.reset();
+  }
+  scrollToTop() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'auto',
+    });
+  }
+  get f() {
+    return this.contactForm.controls;
+  }
 }
